@@ -36,7 +36,7 @@ include '../utilities/sidebar.php';
                 <tbody>
                     <?php
                     include '../koneksi/koneksi.php';
-                    $query = "SELECT * FROM tb_magang WHERE id_magang ORDER BY id_magang DESC";
+                    $query = "SELECT * FROM tb_magang WHERE id_magang ORDER BY nama ASC";
                     $data = mysqli_query($konek, $query);
                     $tanggal_sekarang = date('Y-m-d');
                     $no = 0;

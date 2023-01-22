@@ -32,7 +32,7 @@ $username = $_SESSION['username'];
                 <?php
                 include '../koneksi/koneksi.php';
                 
-                $query = "SELECT tb_magang.username AS username, tb_magang.nama AS nama, tb_pelanggaran.usn_pelanggaran AS usn_pelanggaran, COUNT(pelanggaran) AS pelanggaran FROM tb_magang INNER JOIN tb_pelanggaran ON tb_magang.username = usn_pelanggaran GROUP BY tb_magang.username";
+                $query = "SELECT tb_magang.username AS username, tb_magang.nama AS nama, tb_pelanggaran.usn_pelanggaran AS usn_pelanggaran, IFNULL(COUNT(pelanggaran),0) AS pelanggaran FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = usn_pelanggaran GROUP BY tb_magang.username ORDER BY nama ASC";
 
                 $data = mysqli_query($konek, $query);
                 $no = 0;
@@ -47,6 +47,7 @@ $username = $_SESSION['username'];
                         echo "<td><div class='btn-row'>
                             <div class='btn-group'>
                             <a href='./cetak_report.php?username=$row[username]' class='btn btn-info'><i class='ri-printer-fill'></i></a>
+                            <a href='./detail_pelanggaran.php?username=$row[username]' class='btn btn-warning'><i class='ri ri-contacts-book-2-fill'></i></a>
                             </div>
                             </div>
                             </td>";
@@ -55,6 +56,7 @@ $username = $_SESSION['username'];
                                 echo "<td><div class='btn-row'>
                                 <div class='btn-group'>
                                 <a href='./cetak_report.php?username=$row[username]' class='btn btn-info'><i class='ri-printer-fill'></i></a>
+                                <a href='./detail_pelanggaran.php?username=$row[username]' class='btn btn-warning'><i class='ri ri-contacts-book-2-fill'></i></a>
                                 </div>
                                 </div>
                                 </td>

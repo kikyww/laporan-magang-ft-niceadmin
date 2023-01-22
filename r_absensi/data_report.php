@@ -33,7 +33,7 @@ $username = $_SESSION['username'];
                 <?php
                 include '../koneksi/koneksi.php';
                 
-                $query = "SELECT tb_magang.username AS username, tb_magang.nama AS nama, tb_absen.usn AS usn, SUM(kehadiran = 'hadir') AS jumlah_hadir, SUM(kehadiran = 'sakit') AS jumlah_sakit, SUM(kehadiran = 'izin') AS jumlah_izin FROM tb_magang LEFT JOIN tb_absen ON tb_magang.username = usn GROUP BY tb_magang.username";
+                $query = "SELECT tb_magang.username AS username, tb_magang.nama AS nama, tb_absen.usn AS usn, SUM(kehadiran = 'hadir') AS jumlah_hadir, SUM(kehadiran = 'sakit') AS jumlah_sakit, SUM(kehadiran = 'izin') AS jumlah_izin FROM tb_magang LEFT JOIN tb_absen ON tb_magang.username = usn GROUP BY tb_magang.username ORDER BY nama ASC";
 
                 $data = mysqli_query($konek, $query);
                 $no = 0;

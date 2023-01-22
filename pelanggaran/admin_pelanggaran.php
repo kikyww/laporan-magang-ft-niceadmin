@@ -40,7 +40,7 @@ if ($_SESSION['status'] != 'admin') {
                 <?php
                 include '../koneksi/koneksi.php';
                 
-                $query = "SELECT tb_magang.username AS username, tb_magang.nama AS nama, tb_pelanggaran.usn_pelanggaran AS usn_pelanggaran, COUNT(pelanggaran = 'pelanggaran') AS pelanggaran FROM tb_magang INNER JOIN tb_pelanggaran ON tb_magang.username = usn_pelanggaran GROUP BY tb_magang.username";
+                $query = "SELECT tb_magang.username AS username, tb_magang.nama AS nama, tb_pelanggaran.usn_pelanggaran AS usn_pelanggaran, IFNULL(COUNT(pelanggaran),0) AS pelanggaran FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = usn_pelanggaran GROUP BY tb_magang.nama";
 
                 $data = mysqli_query($konek, $query);
                 $no = 0;

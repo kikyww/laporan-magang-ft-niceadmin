@@ -116,7 +116,7 @@ if ($_SESSION['status'] == 'user') {
                 <div class="row mb-3">
                   <label for="password" class="col-sm-2 col-form-label">Password</label>
                   <div class="col-sm-10">
-                    <input name="password" type="text" class="form-control">
+                    <input name="password" type="text" value="12345678" class="form-control">
                   </div>
                 </div>
 

@@ -82,6 +82,20 @@ include '../koneksi/koneksi.php';
             </div>
         </div>
     </section>
+
+
+<!-- <script>
+    setInterval(function(){
+        let jam_sekarang = new Date().getHours();
+        let jam_absen = 09.00;
+        if (jam_sekarang === jam_absen) {
+            
+            $sql = mysqli_query($konek, "INSERT INTO tb_absen (id_absen, kehadiran, usn, tanggal, keterangan) VALUES ('$idabsen', '$kehadiran', '$usn', '$tanggal', '$keterangan')"); 
+            
+        }
+    }, 3600000);
+</script> -->
+
 <?php 
 include '../utilities/footer.php';
 ?>

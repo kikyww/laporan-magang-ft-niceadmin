@@ -10,7 +10,7 @@ $username = $_GET['username'];
     <div class="col-lg-9">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Tambah Pelanggaran</h5>
+          <h5 class="card-title">Tambah Nilai</h5>
           <form action="submit_nilai.php" method="POST">
             <div class="row mb-3" hidden>
               <div class="col-sm-10">

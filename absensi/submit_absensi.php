@@ -25,7 +25,7 @@ if ($_SESSION['status'] != "user") {
     }
     $sql = "INSERT INTO tb_absen (id_absen, kehadiran, usn, tanggal, keterangan) VALUES ('$idabsen', '$kehadiran', '$usn', '$tanggal', '$keterangan')";
     if (mysqli_query($konek, $sql)) {
-        echo "<script>alert('Absensi telah berhasil ditambahkan!');</script>";
+        // echo "<script>alert('Absensi telah berhasil ditambahkan!');</script>";
         echo '<meta http-equiv="refresh" content="0; url=data_absensi.php">';
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($konek);

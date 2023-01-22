@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
     $tanggal = $_POST['tanggal'];
     $pelanggaran = $_POST['pelanggaran'];
     $keterangan = $_POST['keterangan'];
+    
     $sql = "UPDATE tb_pelanggaran SET tanggal = '$tanggal', pelanggaran = '$pelanggaran', keterangan = '$keterangan' WHERE id_pelanggaran = '$id'";
 
     if (mysqli_query($konek, $sql)) {

@@ -1,7 +1,13 @@
 <?php
 include '../utilities/sidebar.php';
 
-?>
+if ($_SESSION['status'] != 'admin') {
+    echo "<script>
+    window.location.href='../pages-error-404.html'
+    </script>";
+} else {
+
+    ?>
 
 <div class="pagetitle">
   <h1>Halaman Laporan</h1>
@@ -31,46 +37,46 @@ include '../utilities/sidebar.php';
                         <th>Konversi Nilai</th>
                         <th>Status Panggilan</th>
                         <th>Status PKL</th>
-                        <th>Aksi</th>
+                        <th>Detail</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     include '../koneksi/koneksi.php';
                     // $query = "SELECT * FROM (((tb_magang m LEFT JOIN tb_absen a ON  m.username = a.usn) LEFT JOIN tb_pelanggaran p ON m.username = p.usn_pelanggaran) LEFT JOIN tb_nilai n ON m.username = n.usn_nilai) GROUP BY m.nama ORDER BY nama ASC";
-
+                
                     // $query = "SELECT DISTINCT tb_magang.username AS username, tb_magang.nama AS nama, tb_magang.instansi AS instansi, tb_magang.tgl_keluar AS tgl_keluar, tb_magang.tgl_masuk AS tgl_masuk, tb_magang.jurusan AS jurusan, tb_pelanggaran.usn_pelanggaran AS usn_pelanggaran, tb_pelanggaran.pelanggaran AS pelanggaran, COUNT(pelanggaran) AS pelanggaran, tb_absen.usn AS usn, tb_absen.kehadiran AS kehadiran, COUNT(kehadiran) AS kehadiran, tb_nilai.usn_nilai AS usn_nilai, tb_nilai.rata_rata AS rata_rata, IFNULL(tb_nilai.rata_rata, 0) as rata_rata FROM tb_magang INNER JOIN tb_pelanggaran INNER JOIN tb_absen INNER JOIN tb_nilai GROUP BY tb_pelanggaran.id_pelanggaran, tb_absen.id_absen, tb_nilai.id_nilai ORDER BY nama ASC";
-
+                
                     // $query = "SELECT * FROM (((tb_magang m LEFT JOIN tb_absen a ON  m.username = a.usn), COUNT(pelanggaran) AS pelanggaran LEFT JOIN tb_pelanggaran p ON m.username = p.usn_pelanggaran) LEFT JOIN tb_nilai n ON m.username = n.usn_nilai) GROUP BY m.nama ORDER BY nama ASC";
-
+                
                     // $query = "SELECT DISTINCT tb_magang.username AS username, tb_magang.nama AS nama, tb_magang.instansi AS instansi, tb_magang.tgl_keluar AS tgl_keluar, tb_magang.tgl_masuk AS tgl_masuk, tb_magang.jurusan AS jurusan, tb_pelanggaran.usn_pelanggaran AS usn_pelanggaran, COUNT(pelanggaran) AS pelanggaran, tb_absen.usn AS usn, COUNT(kehadiran) AS kehadiran, tb_nilai.usn_nilai AS usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata FROM tb_magang INNER JOIN tb_pelanggaran INNER JOIN tb_absen INNER JOIN tb_nilai GROUP BY tb_magang.instansi ORDER BY nama ASC";
-
+                
                     // $query = "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_keluar, tb_magang.tgl_masuk, tb_magang.jurusan, tb_pelanggaran.usn_pelanggaran, COUNT(pelanggaran) AS pelanggaran, IFNULL(tb_pelanggaran.pelanggaran, 0) as pelanggaran, tb_absen.usn, COUNT(kehadiran) AS kehadiran, IFNULL(tb_absen.kehadiran, 0) as kehadiran, tb_nilai.usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran LEFT JOIN tb_absen ON tb_magang.username = tb_absen.usn LEFT JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai GROUP BY tb_magang.username ORDER BY tb_magang.nama ASC";
-
+                
                     // $query = "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_keluar, tb_magang.tgl_masuk, tb_magang.jurusan, tb_pelanggaran.usn_pelanggaran, COUNT(pelanggaran) AS pelanggaran, tb_absen.usn,  tb_nilai.usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran LEFT JOIN tb_absen ON tb_magang.username = tb_absen.usn LEFT JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai GROUP BY tb_magang.username, tb_pelanggaran.usn_pelanggaran, tb_absen.usn ORDER BY tb_magang.nama ASC";
+                
 
-                    
                     // $query = "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_keluar, tb_magang.tgl_masuk, tb_magang.jurusan, tb_pelanggaran.usn_pelanggaran, IFNULL(SUM(tb_pelanggaran.pelanggaran), 0) AS pelanggaran, tb_absen.usn, IFNULL(SUM(tb_absen.kehadiran), 0) AS kehadiran, tb_nilai.usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata FROM tb_magang INNER JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran INNER JOIN tb_absen ON tb_magang.username = tb_absen.usn INNER JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai GROUP BY tb_magang.username, tb_pelanggaran.usn_pelanggaran, tb_absen.usn ORDER BY tb_magang.nama ASC ";
                     // $query = "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_masuk, tb_magang.tgl_keluar, tb_magang.jurusan, tb_nilai.rata_rata, tb_pelanggaran.pelanggaran, (IFNULL(tb_nilai.rata_rata, 0) - tb_pelanggaran.pelanggaran) AS total_score FROM tb_magang LEFT JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai LEFT JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran GROUP BY tb_magang.username ORDER BY tb_magang.nama ASC"; $data = mysqli_query($konek, $query);
-                    
-                    $query = "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_keluar, tb_magang.tgl_masuk, tb_magang.jurusan, tb_magang.tgl_masuk, tb_magang.tgl_keluar, tb_nilai.usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata, COUNT(pelanggaran) AS pelanggaran FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran LEFT JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai GROUP BY tb_magang.username ORDER BY tb_magang.nama ASC";
+                
+                    $query = "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_keluar, tb_magang.tgl_masuk, tb_magang.jurusan, tb_magang.tgl_masuk, tb_magang.tgl_keluar, tb_magang.id_magang, tb_nilai.usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata, COUNT(pelanggaran) AS pelanggaran FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran LEFT JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai GROUP BY tb_magang.username ORDER BY tb_magang.nama ASC";
                     $data = mysqli_query($konek, $query);
 
                     $tanggal_sekarang = date('Y-m-d');
                     $no = 0;
                     $total = 0;
-                        while ($row = mysqli_fetch_array($data)) {
-                            // $date1 = new DateTime($row['tgl_masuk']);
-                            // $date2 = new DateTime($row['tgl_keluar']);
-                            // $interval = $date1->diff($date2);
-                            // $jumlah_hari = $interval->format('%a');
+                    while ($row = mysqli_fetch_array($data)) {
+                        // $date1 = new DateTime($row['tgl_masuk']);
+                        // $date2 = new DateTime($row['tgl_keluar']);
+                        // $interval = $date1->diff($date2);
+                        // $jumlah_hari = $interval->format('%a');
+                
+                        // $weekend_holidays = 8;
+                        // $weekend = round(($jumlah_hari / 30) * $weekend_holidays);
+                        //  $total += $score;
+                        $no++;
 
-                            // $weekend_holidays = 8;
-                            // $weekend = round(($jumlah_hari / 30) * $weekend_holidays);
-                            //  $total += $score;
-                            $no++;
-                    
-                        if($row['rata_rata'] == true){
+                        if ($row['rata_rata'] == true) {
                             $poin = 0.3;
                             $score = $row['rata_rata'] - ($row['pelanggaran'] * $poin);
                         } else {
@@ -82,27 +88,27 @@ include '../utilities/sidebar.php';
                         } else {
                             $status = "<span class='badge rounded-pill bg-danger'>Non Aktif</span>";
                         }
-                        if($score >= 90){
+                        if ($score >= 90) {
                             $huruf = "A";
                             $rekomendasi = "<span class='badge rounded-pill bg-success'>Sangat Rekomendasi</span>";
-                        }else if($score >= 85){
+                        } else if ($score >= 85) {
                             $huruf = "B+";
                             $rekomendasi = "<span class='badge rounded-pill bg-info'>Rekomendasi</span>";
-                        }else if($score >= 80){
+                        } else if ($score >= 80) {
                             $huruf = "B";
                             $rekomendasi = "<span class='badge rounded-pill bg-info'>Rekomendasi</span>";
-                        }else if($score >= 75){
+                        } else if ($score >= 75) {
                             $huruf = "C+";
                             $rekomendasi = "<span class='badge rounded-pill bg-warning'>Tidak Rekomendasi</span>";
-                        }else if($score >= 70){
+                        } else if ($score >= 70) {
                             $huruf = "C";
                             $rekomendasi = "<span class='badge rounded-pill bg-warning'>Tidak Rekomendasi</span>";
-                        }else if($score >= 60){
+                        } else if ($score >= 60) {
                             $huruf = "D";
                             $rekomendasi = "<span class='badge rounded-pill bg-danger'>Sangat Tidak Rekomendasi</span>";
-                        }else{
+                        } else {
                             $huruf = "E";
-                            $rekomendasi = "<span class='badge rounded-pill bg-danger'>Sangat Tidak Rekomendasi</span>";
+                            $rekomendasi = "<span >-</span>";
                         }
 
                         echo "<tr>
@@ -117,7 +123,7 @@ include '../utilities/sidebar.php';
                         <td>
                         <div class='btn-row'>
                             <div class='btn-group'>
-                                <a href='./detail_report.php?id=$row[0]' class='btn btn-info'><i class='ri ri-contacts-book-2-fill'></i></a>
+                                <a href='./detail_riwayat.php?id=$row[8]' class='btn btn-warning'><i class='ri ri-contacts-book-2-fill'></i></a>
                                 </div>
                             </div>
                         </td>
@@ -132,5 +138,6 @@ include '../utilities/sidebar.php';
 
 
 <?php
+}
 include '../utilities/footer.php';
 ?>

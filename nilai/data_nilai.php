@@ -10,11 +10,11 @@ if ($_SESSION['status'] != 'admin') {
 ?>
 
 <div class="pagetitle">
-  <h1>Halaman Pelanggaran</h1>
+  <h1>Halaman Penilaian</h1>
   <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="../utilities/dashboard.php">Home</a></li>
-      <li class="breadcrumb-item active">Pelanggaran</li>
+      <li class="breadcrumb-item active">Nilai</li>
     </ol>
   </nav>
 </div><!-- End Page Title -->
@@ -22,7 +22,7 @@ if ($_SESSION['status'] != 'admin') {
 <section class="section">
 <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Pelanggaran</h5>
+                <h5 class="card-title">Nilai</h5>
                 <table class="table table-striped" id="idcuy">
                 <thead>
                     <tr class="text-center">

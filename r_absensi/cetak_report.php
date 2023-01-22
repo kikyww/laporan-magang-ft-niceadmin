@@ -109,9 +109,21 @@ echo"
 
 </tbody>
 
-</table>
+</table> 
 </div>
 </div>
+
+<div style="width:300px;float:right;">
+<div style="text-align:center"><p>Banjarmasin, <?php echo date('d M Y'); ?> <br /></div>
+
+<div style="font-weight:bold;text-align:center"><p>KEPALA BAGIAN<br />
+</p>
+  <p>&nbsp;</p>
+  <p><u>tes</u><br />
+  tes <br /></p>
+</div>
+</div>
+
 </div>
 </div>
 <script>

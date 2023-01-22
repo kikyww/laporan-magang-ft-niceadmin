@@ -29,7 +29,7 @@ if ($_SESSION['status'] != "user") {
     $sql = "INSERT INTO tb_kegiatan (id_kegiatan, usn_kegiatan, tanggal, kegiatan_i, kegiatan_ii, kegiatan_iii, kegiatan_iv, kegiatan_v) VALUES ('$idkegiatan', '$usn', '$tanggal', '$kegiatani', '$kegiatanii', '$kegiataniii', '$kegiataniv', '$kegiatanv')";
     
     if (mysqli_query($konek, $sql)) {
-        echo "<script>alert('Kegiatan telah berhasil ditambahkan!');</script>";
+        // echo "<script>alert('Kegiatan telah berhasil ditambahkan!');</script>";
         echo '<meta http-equiv="refresh" content="0; url=data_kegiatan.php">';
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($konek);
