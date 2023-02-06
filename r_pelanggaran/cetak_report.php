@@ -99,8 +99,8 @@ echo"
     <tr>
         <td style='text-align:center;' class='td1'>$no</td>
         <td style='text-align:center;' class='td1'>$data[tanggal]</td>
-        <td style='text-align:center;'' class='td1'>$data[pelanggaran] </td>
-        <td style='text-align:center;' class='td1'>$data[keterangan]</td>
+        <td style='text-align:start;'' class='td1'>$data[pelanggaran] </td>
+        <td style='text-align:start;' class='td1'>$data[keterangan]</td>
         <td style='text-align:center;' class='td1'></td>
     </tr>";
 
@@ -117,11 +117,11 @@ echo"
 <div style="width:300px;float:right;">
 <div style="text-align:center"><p>Banjarmasin, <?php echo date('d M Y'); ?> <br /></div>
 
-<div style="font-weight:bold;text-align:center"><p>KEPALA BAGIAN<br />
+<div style="font-weight:bold;text-align:center"><p>Pembimbing Lapangan,<br />
 </p>
   <p>&nbsp;</p>
-  <p><u>tes</u><br />
-  tes <br /></p>
+  <p><u>Yanuar Diansyah, SKM, Mkes</u><br />
+  NIP : 1974 01011997303 1 003 <br /></p>
 </div>
 </div>
 

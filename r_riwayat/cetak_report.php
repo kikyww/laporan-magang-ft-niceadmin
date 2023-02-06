@@ -39,6 +39,7 @@ hr{border-bottom: 5px double #000;clear:both}
 #cop {
 	float:left;width:550px;text-align:center;
 }
+
 #kanan{clear:both;width:auto;float:right;margin-bottom:10px;}
 #header {clear:both;text-align:center;}
 
@@ -118,7 +119,7 @@ td{
 
 <?php
 include "../koneksi/koneksi.php";
-      $query = mysqli_query($konek, "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_keluar, tb_magang.tgl_masuk, tb_magang.jurusan, tb_magang.tgl_masuk, tb_magang.tgl_keluar, tb_nilai.usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata, COUNT(pelanggaran) AS pelanggaran FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran LEFT JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai GROUP BY tb_magang.username ORDER BY tb_magang.nama ASC");
+      $query = mysqli_query($konek, "SELECT tb_magang.username, tb_magang.nama, tb_magang.instansi, tb_magang.tgl_keluar, tb_magang.tgl_masuk, tb_magang.jurusan, tb_magang.tgl_masuk, tb_magang.tgl_keluar, tb_nilai.usn_nilai, IFNULL(tb_nilai.rata_rata, 0) as rata_rata, COUNT(pelanggaran) AS pelanggaran FROM tb_magang LEFT JOIN tb_pelanggaran ON tb_magang.username = tb_pelanggaran.usn_pelanggaran LEFT JOIN tb_nilai ON tb_magang.username = tb_nilai.usn_nilai GROUP BY tb_magang.username ORDER BY tb_nilai.rata_rata DESC");
 
         $tanggal_sekarang = date('Y-m-d');
         $no = 0;
@@ -182,13 +183,12 @@ include "../koneksi/koneksi.php";
 <div style="width:300px;float:right;">
 <div style="text-align:center"><p>Banjarmasin, <?php echo date('d M Y'); ?> <br /></div>
 
-<div style="font-weight:bold;text-align:center"><p>KEPALA BAGIAN<br />
-</p>
-  <p>&nbsp;</p>
-  <p><u>tes</u><br />
-  tes <br /></p>
-</div>
-</div>
+	<div style="font-weight:bold;text-align:center"><p>Pimpinan<br /></p>
+		<p>&nbsp;</p>
+		<p><u>Drs. M. Helfiannoor, M.Si</u><br />
+			NIP : 19730719 199302 1 022 <br /></p>
+	</div>
+	</div>
 
 </body>
 <script>

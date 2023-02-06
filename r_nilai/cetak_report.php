@@ -180,14 +180,25 @@ echo"
 </div>
 </div>
 
-<div style="width:300px;float:right;">
+<div style="display:flex; justify-content:space-between;">
+	<div style="width:300px;">
+	<div style="text-align:center"><p>Mengetahui, <br /></div>
+	<div style="font-weight:bold;text-align:center"><p>Pimpinan<br /></p>
+		<p>&nbsp;</p>
+		<p><u>Drs. M. Helfiannoor, M.Si</u><br />
+			NIP : 19730719 199302 1 022 <br /></p>
+	</div>
+	</div>
+
+<div style="width:300px;">
 <div style="text-align:center"><p>Banjarmasin, <?php echo date('d M Y'); ?> <br /></div>
 
-<div style="font-weight:bold;text-align:center"><p>KEPALA BAGIAN<br />
+<div style="font-weight:bold;text-align:center"><p>Pembimbing Lapangan,<br />
 </p>
   <p>&nbsp;</p>
-  <p><u>tes</u><br />
-  tes <br /></p>
+  <p><u>Yanuar Diansyah, SKM, Mkes</u><br />
+  NIP : 1974 01011997303 1 003 <br /></p>
+</div>
 </div>
 </div>
 
