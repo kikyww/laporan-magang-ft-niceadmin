@@ -4,6 +4,9 @@ include '../koneksi/koneksi.php';
     $username = $_SESSION['username'];    
     $status = $_SESSION['status'];
 
+    if(!isset($username)){
+        echo"window.location.href='../pages-error-404.html'";
+    } else {
 ?>
 
 <div class="pagetitle">
@@ -93,6 +96,7 @@ include '../koneksi/koneksi.php';
             </div>
         </div>
     </section>
-<?php 
+<?php
+    }
 include '../utilities/footer.php';
 ?>

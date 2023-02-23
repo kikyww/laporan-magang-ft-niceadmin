@@ -85,10 +85,11 @@ $username = $_GET['username'];
                 </div>
               </div>
             <div class="d-flex justify-content-end mt-3">
+              <span class="btn btn-primary" id="jumlah" onclick="hitungRataRata()">Rata-Rata</span>
+              <a href="data_nilai.php" class="btn btn-warning" style="margin-left:6px; margin-right:6px">Kembali</a>
               <button name="submit" id="submit" value="submit" type="submit" class="btn btn-success">Kirim</button>
             </div>
           </form>
-          <button class="btn btn-primary" id="jumlah" onclick="hitungRataRata()">Jumlah</button>
         </div>
       </div>
     </div>

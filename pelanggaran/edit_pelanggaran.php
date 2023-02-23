@@ -49,7 +49,8 @@ if(isset($id)){
                   </div>
                 </div>
                 <div class="d-flex justify-content-end mt-3">
-                  <button name="submit" value="submit" type="submit" class="btn btn-success">Kirim</button>
+                  <a href="admin_pelanggaran.php" class="btn btn-warning">Kembali</a>
+                  <button name="submit" value="submit" type="submit" class="btn btn-success" style="margin-left:6px">Kirim</button>
                 </div>
               </form>
             </div>

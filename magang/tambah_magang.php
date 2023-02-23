@@ -136,8 +136,9 @@ if ($_SESSION['status'] == 'user') {
                       </label>
                     </div>
                   </div>
-                  <div class="d-flex justify-content-end mt-3">
-                      <button name="submit" value="submit" type="submit" class="btn btn-success">Tambah</button>
+                  <div class="d-flex justify-content-between mt-3">
+                    <a href="data_magang.php" class="btn btn-warning">Kembali</a>
+                    <button name="submit" value="submit" type="submit" class="btn btn-success">Tambah</button>
                   </div>  
                 </div>
               </fieldset>

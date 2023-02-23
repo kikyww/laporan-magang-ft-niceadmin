@@ -1,7 +1,27 @@
 <?php
 include '../utilities/sidebar.php';
-?>
+include '../koneksi/koneksi.php';
 
+$query = mysqli_query($konek, "SELECT * FROM tb_magang");
+$q = mysqli_query($konek, "SELECT COUNT(username) as username FROM tb_magang");
+$r = mysqli_fetch_assoc($q);
+
+$data = [];
+while ($row = mysqli_fetch_assoc($query)) {
+    $data[] = $row;
+}
+
+$today = date('Y-m-d');
+$jumlah_aktif = 0;
+
+foreach ($data as $pkl) {
+    if ($pkl['tgl_masuk'] <= $today && $today <= $pkl['tgl_keluar']) {
+        $jumlah_aktif++;
+    }
+}
+
+?>
+<div class="bg-dppkbpm">
 <div class="pagetitle">
   <h1>Dashboard</h1>
   <nav>
@@ -16,14 +36,13 @@ include '../utilities/sidebar.php';
   <div class="col-xxl-4 col-md-6">
     <div class="card info-card revenue-card">
       <div class="card-body">
-        <h5 class="card-title">Revenue <span>| This Month</span></h5>
+        <h5 class="card-title">Jumlah Anak PKL <span>| Aktif</span></h5>
         <div class="d-flex align-items-center">
           <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-            <i class="bi bi-currency-dollar"></i>
+            <i class="bi bi-person"></i>
           </div>
           <div class="ps-3">
-          <h6>$3,264</h6>
-            <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+          <h6><?= $jumlah_aktif ?></h6>
           </div>
         </div>
       </div>
@@ -35,21 +54,20 @@ include '../utilities/sidebar.php';
   <div class="col-xxl-4 col-md-6">
     <div class="card info-card revenue-card">
       <div class="card-body">
-        <h5 class="card-title">Revenue <span>| This Month</span></h5>
+        <h5 class="card-title">Jumlah Anak PKL <span>| Total</span></h5>
         <div class="d-flex align-items-center">
-          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-            <i class="bi bi-currency-dollar"></i>
+          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-light">
+            <i class="bi bi-person"></i>
           </div>
           <div class="ps-3">
-          <h6>$3,264</h6>
-            <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+          <h6><?= $r['username'] ?></h6>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
+</div>
 
 <?php 
 include ('../utilities/footer.php');

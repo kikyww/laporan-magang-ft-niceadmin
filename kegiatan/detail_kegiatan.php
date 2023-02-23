@@ -29,6 +29,7 @@ if(isset($username)){
 <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Catatan Kegiatan</h5>
+                <a href="admin_kegiatan.php" class="btn btn-warning">Kembali</a>
                 <table class="table table-striped" id="idcuy">
                 <thead>
                     <tr class="">

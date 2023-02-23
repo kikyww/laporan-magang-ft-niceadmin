@@ -196,6 +196,10 @@ h6 {
   }
 }
 
+.bg-dppkbpm {
+  background-image: url(../img/dashboard.jpg);
+}
+
 /* Light Backgrounds */
 .bg-primary-light {
   background-color: #cfe2ff;
@@ -263,7 +267,7 @@ h6 {
 }
 
 .card-body {
-  padding: 0 20px 20px 20px;
+  padding: 0 20px 20px 20px; 
 }
 
 .card-img-overlay {

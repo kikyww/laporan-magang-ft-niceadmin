@@ -72,6 +72,7 @@ if(isset($id)){
                 
                 <div class="d-flex justify-content-end">
                   <div class=" mt-3">
+                    <a href="data_kegiatan.php" class="btn btn-warning">Kembali</a>
                     <button name="submit" value="submit" type="submit" class="btn btn-success">Kirim</button>
                   </div>
                 </div>

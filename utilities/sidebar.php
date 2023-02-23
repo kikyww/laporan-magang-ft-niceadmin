@@ -15,7 +15,7 @@ if (!isset($_SESSION['id_user']) && $_SESSION['id_user'] == false) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Laporan Magang Cuy</title>
+  <title>APLIKASI PKL DPPKBPM</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -134,13 +134,13 @@ if (!isset($_SESSION['id_user']) && $_SESSION['id_user'] == false) {
           </li>
         </ul>
       </li><!-- End Components Nav -->
-
+      <?php if ($_SESSION['status'] == 'admin'){ ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="../nilai/data_nilai.php">
           <i class="bi bi-journal-text"></i><span>Penilaian</span>
         </a>
       </li><!-- End Forms Nav -->
-      
+      <?php } ?>
       <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="../surat/data_balasan.php">
           <i class="ri-draft-line"></i><span>Surat Balasan</span>
@@ -172,11 +172,13 @@ if (!isset($_SESSION['id_user']) && $_SESSION['id_user'] == false) {
               <i class="bi bi-circle"></i><span>Laporan Nilai</span>
             </a>
           </li>
+          <?php if ($_SESSION['status'] == 'admin'){ ?>
           <li>
             <a href="../r_riwayat/data_report.php">
               <i class="bi bi-circle"></i><span>Riwayat Anak Magang</span>
             </a>
           </li>
+          <?php } ?>
         </ul>
       </li><!-- End Tables Nav -->
   </aside><!-- End Sidebar-->

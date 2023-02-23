@@ -289,24 +289,25 @@ echo"
         <td>$row[rata_rata] </td>
         </tr>
         <div class='btn-row'>
-            <div class='btn-group'>
+            <div class='mb-3'>
                 <a href='edit_nilai.php?id=$row[3]' class='btn btn-warning'>Edit Nilai</a>
                 <a href='hapus_nilai.php?id=$row[3]' onclick='return confirm(\" Hapus Nilai ini?\");' class='btn btn-danger'>Hapus Nilai</a>
-                </div>
-            </div>";
+                
+            ";
         if ($row['n_sopan'] == false) {
-          echo "<div style='display:flex; justify-content:end; margin-bottom: 20px;'>
+          echo "
               <a class='btn btn-success' href='tambah_nilai.php?username=$row[username]'>Tambah Nilai</a>
-          </div>
-          ";
+             
+              ";
         } else {
-          echo "<div style='display:flex; justify-content:end; margin-bottom: 20px;'>
-          <a class='btn btn-success'>Tambah Nilai</a>
-      </div>";
+          echo "
+         ";
         }
     }
 } 
 ?>
+  </div>
+ </div>
 </tbody>
     </table>
 </div>

@@ -56,7 +56,8 @@ if(isset($id)){
                     <textarea name="keterangan" type="text" class="form-control" value="<?= $row['keterangan'];?>"></textarea>
                   </div>
                 </div>
-                <div class="d-flex justify-content-end mt-3">
+                <div class="d-flex justify-content-between mt-3">
+                  <a href="data_absensi.php" class="btn btn-warning">Kembali</a>
                   <button name="submit" value="submit" type="submit" class="btn btn-success">Kirim</button>
                 </div>
               </form>

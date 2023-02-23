@@ -109,9 +109,7 @@ if ($row['tgl_keluar'] >= $row['tgl_masuk'] && $tanggal_sekarang < $row['tgl_kel
                     <div class="col-lg-9 col-md-8"><?= $row['tgl_keluar'] ?></div>
                   </div>
                 </div>
-              
                 </div>
-
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                   <!-- Profile Edit Form -->
                   <form action="submit_edit.php" method="POST">

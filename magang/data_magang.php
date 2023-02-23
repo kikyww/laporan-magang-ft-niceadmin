@@ -1,5 +1,11 @@
 <?php
 include '../utilities/sidebar.php';
+$username = $_SESSION['username'];    
+$status = $_SESSION['status'];
+
+if(!isset($username)){
+    echo"window.location.href='pages-error-404.html'";
+} else {
 
 ?>
 
@@ -101,5 +107,6 @@ include '../utilities/sidebar.php';
                         </tr>"; -->
 
 <?php
+}
 include '../utilities/footer.php';
 ?>
